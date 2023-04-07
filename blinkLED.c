@@ -19,27 +19,27 @@ int main(void)
 
     PORTD = 0b01000000;
     PORTB = 0b00000001;
-    _delay_ms(100);
+    _delay_ms(50);
 
     PORTD = 0b11000000;
     PORTB = 0b00000000;
-    _delay_ms(100);
+    _delay_ms(50);
 
     PORTD = 0b01000000;
     PORTB = 0b00000001;
-    _delay_ms(100);
+    _delay_ms(500);
 
     PORTD = 0b10000000;
     PORTB = 0b00000000;
-    _delay_ms(100);
+    _delay_ms(50);
 
     PORTD = 0b00000000;
     PORTB = 0b00000001;
-    _delay_ms(100);
+    _delay_ms(50);
 
     PORTB = 0b00000000;
     PORTD = 0b10000000;
-    _delay_ms(1000);
+    _delay_ms(500);
   }
   return 0;
 }
