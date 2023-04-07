@@ -14,28 +14,12 @@ int main(void) {
 
   // ------ Event loop ------ //
   while (1) {
-
-int a=5;
-    PORTB = 0b01000010;          
+    int a=1000;                                        
+    PORTB = 0b01010101;          
     _delay_ms(a); 
                                          
-    PORTB = 0b000000000;          
-    _delay_ms(a); 
-
-
-    PORTB = 0b00000001;          
-    _delay_ms(a); 
-                                         
-    PORTB = 0b000000000;          
-    _delay_ms(a); 
-
-    PORTB = 0b00111100;          
-    _delay_ms(a); 
-                                         
-    PORTB = 0b11111111;          
+    PORTB = 0b10101010;          
     _delay_ms(a);
-
-
   }                                                  
   return 0;                     
 }
