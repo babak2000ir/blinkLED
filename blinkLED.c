@@ -8,7 +8,7 @@
 int main(void) {
 
   // -------- Inits --------- //
-  DDRB |= 0b00000001;            /* Data Direction Register B:
+  DDRB |= (1 << PB0);            /* Data Direction Register B:
                                    writing a one to the bit
                                    enables output. */
 
