@@ -1,25 +1,141 @@
-                                                       /* Blinker Demo */
+#include <avr/io.h>			/* Include AVR std. library file */
+#include <util/delay.h>			/* Include Delay header file */
 
-// ------- Preamble -------- //
-#include <avr/io.h>                        /* Defines pins, ports, etc */
-#include <util/delay.h>                     /* Functions to waste time */
+#define LCD_DATA PORTD          // port B is selected as LCD data port
+#define color_port PORTC
+#define en PB6                 // enable signal is connected to port D pin 7
+#define rs PB7                  // register select signal is connected to port D pin 5
 
+void LCD_cmd(unsigned char cmd);
+void init_LCD(void);
+void LCD_write(unsigned char data);
 
-int main(void) {
+unsigned int color = 0b00000000;
 
-  // -------- Inits --------- //
-  DDRB = 0xff;            /* Data Direction Register B:
-                                   writing a one to the bit
-                                   enables output. */
+int main(void)
+{
 
-  // ------ Event loop ------ //
+  DDRB=0xFF;              // set LCD data port as output
+  DDRC=0xFF;              // RGB
+  DDRD=0xFF;              // set LCD signals (RS, RW, E) as out put
+
+  init_LCD();             // initialize LCD
+  _delay_ms(20);         
+
+  LCD_cmd(0x0C);          // display on, cursor off 
+
   while (1) {
-    int a=1000;                                        
-    PORTB = 0b01010101;          
-    _delay_ms(a); 
-                                         
-    PORTB = 0b10101010;          
-    _delay_ms(a);
-  }                                                  
-  return 0;                     
+    LCD_writestr("-> Juju  Bubu <-");        // call a function to display “Atmega32” on LCD
+
+    LCD_cmd(0xC0);          // move cursor to the start of 2nd line
+
+    LCD_cmd(0x0C);          // display on, cursor off
+
+    LCD_writestr("----Colorful----"); // call a function to display “Microcontroller” on LCD
+
+    //clear the screen
+    LCD_cmd(0x01);          // make clear LCD
+  }
+
+  LCD_cmd(0x0E);          // make display ON, cursor ON
+
+  return 0;
+}
+
+void init_LCD(void)
+{
+  LCD_cmd(0x38);           // initialization in 8bit mode of 16X2 LCD
+  _delay_ms(1);
+
+  LCD_cmd(0x01);          // make clear LCD
+  _delay_ms(1);
+
+  LCD_cmd(0x02);          // return home
+  _delay_ms(1);
+
+  LCD_cmd(0x06);          // make increment in cursor
+  _delay_ms(1);
+
+  LCD_cmd(0x80);          // “8” go to first line and “0” is for 0th position
+  _delay_ms(1);
+
+  return;
+}
+
+ 
+
+//**************sending command on LCD***************//
+void LCD_cmd(unsigned char cmd)
+{
+  LCD_DATA = cmd;      // data lines are set to send command
+
+  PORTB  &= ~(1<<rs);  // RS sets 0
+  PORTB  |= (1<<en);   // make enable from high to low
+  _delay_ms(1);
+  PORTB  &= ~(1<<en);
+
+  return;
+}
+
+ 
+
+//*****************write data on LCD*****************//
+
+void LCD_write(unsigned char data)
+{
+  LCD_DATA= data;       // data lines are set to send command
+
+  PORTB  |= (1<<rs);    // RS sets 1
+  PORTB  |= (1<<en);    // make enable from high to low
+  _delay_ms(1);
+  PORTB &= ~(1<<en);
+
+  return ;
+}
+
+void LCD_writestr(char *str)
+{
+  int i=0;
+  while(str[i]!=0)
+  {
+    LCD_write(str[i]);
+    _delay_ms(30);
+    LCD_toggle_color();
+    i++;
+  }
+}
+
+void LCD_toggle_color()
+{
+  color++;
+
+  if (color > 7)
+  {
+    color = 0;
+  }
+
+  color_port = color;
+  //set color to navy
+  //color_port = 0b00000001;
+
+  //set color to purple
+  //color_port = 0b00000010;
+
+  //set color to blue
+  //color_port = 0b00000011;
+
+  //set color to yellow
+  //color_port = 0b00000100;
+
+  //set color to green
+  //color_port = 0b00000101;
+
+  //set color to red
+  //color_port = 0b00000110;
+
+  //set color to Off
+  //color_port = 0b00000111;
+
+  //set color to white
+  //color_port = 0b00000000; 
 }
