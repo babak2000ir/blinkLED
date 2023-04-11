@@ -18,6 +18,19 @@ static inline void initADC0(void) {
   ADCSRA |= (1 << ADEN);                                 /* enable ADC */
 }
 
+static inline void initFreerunningADC(void) {
+  ADMUX |= (1 << REFS0);                  /* reference voltage on AVCC */
+  ADCSRA |= (1 << ADPS2);                   /* ADC clock prescaler /16 */
+  //ADMUX |= (1 << ADLAR);                  //left-adjust result
+  ADMUX |= 0b00000011;                    /* use ADC3 (PC0) as input */
+
+
+  
+  ADCSRA |= (1 << ADEN);                                 /* enable ADC */
+  ADCSRA |= (1 << ADATE);
+  ADCSRA |= (1 << ADSC);                     /* start ADC conversion */
+}
+
 unsigned int color = 0b00000000;
 
 int main(void)
@@ -27,7 +40,7 @@ int main(void)
 
   uint16_t adcValue;
   uint8_t i;
-  initADC0();
+  initFreerunningADC();
 
   init_LCD();             // initialize LCD
   _delay_ms(20);         
@@ -39,21 +52,21 @@ int main(void)
   while (1) {
     LCD_cmd(0xC0);          // move cursor to the start of 2nd line
 
-    ADCSRA |= (1 << ADSC);                     /* start ADC conversion */
-    loop_until_bit_is_clear(ADCSRA, ADSC);          /* wait until done */
+    //ADCSRA |= (1 << ADSC);                     /* start ADC conversion */
+    //loop_until_bit_is_clear(ADCSRA, ADSC);          /* wait until done */
     adcValue = ADC;                                     /* read ADC in */
                         /* Have 10 bits, want 3 (eight LEDs after all) */
 
     
     //LCD_cmd(0x0C);          // display on, cursor off
 
-    LCD_writeIntAsStr(adcValue/201); // call a function to display “Microcontroller” on LCD
+    LCD_writeIntAsStr(adcValue); // call a function to display “Microcontroller” on LCD
     //LCD_writeIntAsStr(23);
     //LCD_writestr("0.00V");
     //clear the screen
     //LCD_cmd(0x01);          // make clear LCD
 
-    _delay_ms(20);
+    //_delay_ms(20);
   }
 
   LCD_cmd(0x0E);          // make display ON, cursor ON
