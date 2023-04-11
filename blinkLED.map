@@ -3,13 +3,29 @@ Archive member included because of file (symbol)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
                               ../../AVR-Programming-Library/USART.o (__udivmodqi4)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                              ../../AVR-Programming-Library/USART.o (__udivmodhi4)
+                              blinkLED.o (__udivmodhi4)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o (exit)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
                               blinkLED.o (__do_copy_data)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
                               blinkLED.o (__do_clear_bss)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                              blinkLED.o (sprintf)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o) (vfprintf)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (strnlen_P)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (strnlen)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (fputc)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o) (__ultoa_invert)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o) (__prologue_saves__)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o) (__epilogue_restores__)
 
 Discarded input sections
 
@@ -17,6 +33,9 @@ Discarded input sections
  .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
  .text          0x00000000        0x0 blinkLED.o
  .bss           0x00000000        0x0 blinkLED.o
+ .text.LCD_toggle_color
+                0x00000000        0x0 blinkLED.o
+ .bss.color     0x00000000        0x0 blinkLED.o
  .text          0x00000000        0x0 ../../AVR-Programming-Library/USART.o
  .data          0x00000000        0x0 ../../AVR-Programming-Library/USART.o
  .bss           0x00000000        0x0 ../../AVR-Programming-Library/USART.o
@@ -49,7 +68,6 @@ Discarded input sections
  .text          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
  .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
  .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
- .text.libgcc   0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
  .text          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
@@ -62,6 +80,30 @@ Discarded input sections
  .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc   0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+ .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+ .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+ .text          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+ .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+ .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+ .text          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+ .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+ .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+ .text          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+ .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+ .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+ .text          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+ .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+ .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+ .text          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+ .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+ .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+ .text          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .text          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .data          0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .bss           0x00000000        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
 
 Memory Configuration
 
@@ -174,7 +216,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x1a6
+.text           0x00000000      0x7f8
  *(.vectors)
  .vectors       0x00000000       0x68 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vectors
@@ -266,19 +308,43 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  .text.LCD_write
                 0x00000102       0x12 blinkLED.o
                 0x00000102                LCD_write
- .text.LCD_toggle_color
-                0x00000114       0x26 blinkLED.o
-                0x00000114                LCD_toggle_color
  .text.LCD_writestr
-                0x0000013a       0x2e blinkLED.o
-                0x0000013a                LCD_writestr
- .text.main     0x00000168       0x3a blinkLED.o
-                0x00000168                main
-                0x000001a2                . = ALIGN (0x2)
+                0x00000114       0x18 blinkLED.o
+                0x00000114                LCD_writestr
+ .text.LCD_writeIntAsStr
+                0x0000012c       0x6a blinkLED.o
+                0x0000012c                LCD_writeIntAsStr
+ .text.main     0x00000196       0x86 blinkLED.o
+                0x00000196                main
+ .text.libgcc   0x0000021c       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000021c                __udivmodhi4
+ .text.avr-libc
+                0x00000244       0x48 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                0x00000244                sprintf
+ .text.avr-libc
+                0x0000028c      0x3ba c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x0000028c                vfprintf
+ .text.avr-libc
+                0x00000646       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x00000646                strnlen_P
+ .text.avr-libc
+                0x0000065c       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x0000065c                strnlen
+ .text.avr-libc
+                0x00000672       0x58 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x00000672                fputc
+ .text.avr-libc
+                0x000006ca       0xbc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x000006ca                __ultoa_invert
+ .text.libgcc   0x00000786       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00000786                __prologue_saves__
+ .text.libgcc   0x000007be       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x000007be                __epilogue_restores__
+                0x000007f4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000001a2        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x000001a2                exit
-                0x000001a2                _exit
+ .fini9         0x000007f4        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000007f4                exit
+                0x000007f4                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -297,39 +363,37 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000001a2        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000007f4        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000001a6                _etext = .
+                0x000007f8                _etext = .
 
-.data           0x00800100       0x22 load address 0x000001a6
+.data           0x00800100        0xe load address 0x000007f8
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
- .data          0x00800100       0x22 blinkLED.o
+ .data          0x00800100        0xe blinkLED.o
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800122                . = ALIGN (0x2)
-                0x00800122                _edata = .
-                0x00800122                PROVIDE (__data_end, .)
+                0x0080010e                . = ALIGN (0x2)
+                0x0080010e                _edata = .
+                0x0080010e                PROVIDE (__data_end, .)
 
-.bss            0x00800122        0x2
-                0x00800122                PROVIDE (__bss_start, .)
+.bss            0x0080010e        0x0
+                0x0080010e                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.color     0x00800122        0x2 blinkLED.o
-                0x00800122                color
  *(COMMON)
-                0x00800124                PROVIDE (__bss_end, .)
-                0x000001a6                __data_load_start = LOADADDR (.data)
-                0x000001c8                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0080010e                PROVIDE (__bss_end, .)
+                0x000007f8                __data_load_start = LOADADDR (.data)
+                0x00000806                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800124        0x0
-                0x00800124                PROVIDE (__noinit_start, .)
+.noinit         0x0080010e        0x0
+                0x0080010e                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800124                PROVIDE (__noinit_end, .)
-                0x00800124                _end = .
-                0x00800124                PROVIDE (__heap_start, .)
+                0x0080010e                PROVIDE (__noinit_end, .)
+                0x0080010e                _end = .
+                0x0080010e                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -380,59 +444,59 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0xb8
+.debug_aranges  0x00000000       0xc0
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x48 blinkLED.o
+                0x00000000       0x50 blinkLED.o
  .debug_aranges
-                0x00000048       0x70 ../../AVR-Programming-Library/USART.o
+                0x00000050       0x70 ../../AVR-Programming-Library/USART.o
 
 .debug_pubnames
-                0x00000000      0x13a
+                0x00000000      0x150
  *(.debug_pubnames)
  .debug_pubnames
-                0x00000000       0x72 blinkLED.o
+                0x00000000       0x88 blinkLED.o
  .debug_pubnames
-                0x00000072       0xc8 ../../AVR-Programming-Library/USART.o
+                0x00000088       0xc8 ../../AVR-Programming-Library/USART.o
 
-.debug_info     0x00000000      0x7c7
+.debug_info     0x00000000      0x84f
  *(.debug_info)
- .debug_info    0x00000000      0x37f blinkLED.o
- .debug_info    0x0000037f      0x448 ../../AVR-Programming-Library/USART.o
+ .debug_info    0x00000000      0x407 blinkLED.o
+ .debug_info    0x00000407      0x448 ../../AVR-Programming-Library/USART.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x2e3
+.debug_abbrev   0x00000000      0x33a
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x140 blinkLED.o
- .debug_abbrev  0x00000140      0x1a3 ../../AVR-Programming-Library/USART.o
+ .debug_abbrev  0x00000000      0x197 blinkLED.o
+ .debug_abbrev  0x00000197      0x1a3 ../../AVR-Programming-Library/USART.o
 
-.debug_line     0x00000000      0x751
+.debug_line     0x00000000      0x794
  *(.debug_line)
- .debug_line    0x00000000      0x2f2 blinkLED.o
- .debug_line    0x000002f2      0x45f ../../AVR-Programming-Library/USART.o
+ .debug_line    0x00000000      0x335 blinkLED.o
+ .debug_line    0x00000335      0x45f ../../AVR-Programming-Library/USART.o
 
-.debug_frame    0x00000000      0x130
+.debug_frame    0x00000000      0x140
  *(.debug_frame)
- .debug_frame   0x00000000       0x70 blinkLED.o
- .debug_frame   0x00000070       0xc0 ../../AVR-Programming-Library/USART.o
+ .debug_frame   0x00000000       0x80 blinkLED.o
+ .debug_frame   0x00000080       0xc0 ../../AVR-Programming-Library/USART.o
 
-.debug_str      0x00000000      0x213
+.debug_str      0x00000000      0x245
  *(.debug_str)
- .debug_str     0x00000000      0x112 blinkLED.o
-                                0x151 (size before relaxing)
- .debug_str     0x00000112      0x101 ../../AVR-Programming-Library/USART.o
+ .debug_str     0x00000000      0x14c blinkLED.o
+                                0x18b (size before relaxing)
+ .debug_str     0x0000014c       0xf9 ../../AVR-Programming-Library/USART.o
                                 0x1c9 (size before relaxing)
 
-.debug_loc      0x00000000      0x2a3
+.debug_loc      0x00000000      0x2e3
  *(.debug_loc)
- .debug_loc     0x00000000       0xce blinkLED.o
- .debug_loc     0x000000ce      0x1d5 ../../AVR-Programming-Library/USART.o
+ .debug_loc     0x00000000      0x10e blinkLED.o
+ .debug_loc     0x0000010e      0x1d5 ../../AVR-Programming-Library/USART.o
 
 .debug_macinfo
  *(.debug_macinfo)
 OUTPUT(blinkLED.elf elf32-avr)
 LOAD linker stubs
 
-.debug_ranges   0x00000000      0x1e0
- .debug_ranges  0x00000000       0x88 blinkLED.o
- .debug_ranges  0x00000088      0x158 ../../AVR-Programming-Library/USART.o
+.debug_ranges   0x00000000      0x1e8
+ .debug_ranges  0x00000000       0x90 blinkLED.o
+ .debug_ranges  0x00000090      0x158 ../../AVR-Programming-Library/USART.o
